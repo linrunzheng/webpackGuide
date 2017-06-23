@@ -1,0 +1,20 @@
+body{border: 1px solid #000;}
+
+
+div#myApp{
+	width: 500px;
+	height: 250px;
+	background: url('./img/background.jpg') no-repeat center;
+}
+div::before{
+	font-family:icon2;
+	content: '\ea19';
+}
+
+div#base64{
+	width: 500px;
+	height: 250px;
+	background: url('./img/style-error.png') no-repeat center;
+}
+
+

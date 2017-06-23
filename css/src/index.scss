@@ -1,0 +1,14 @@
+ @import './base.scss'; 
+
+body{
+	@include t-overflow(2)
+} 
+body{
+	background:red;
+	transform:scale(90deg);
+	animation:all 2s ;
+	
+	display: flex;
+	background:blue;
+	
+}

@@ -1,0 +1,21 @@
+ @import './base.scss'; 
+ @font-face {
+   font-family:'icon2';
+   src: url('./fonts/icon.ttf');
+  
+   font-weight: normal;
+   font-style: normal;
+}  
+
+
+@import url("//at.alicdn.com/t/font_s0zqwb6by3lhm2t9.css");
+
+body{
+	@include t-overflow(2)
+} 
+body{
+	transform:scale(90deg);
+	animation:all 2s ;
+	display: flex;
+	
+}
