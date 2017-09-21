@@ -1,0 +1,169 @@
+
+之前，当需要打包多个而文件时，我是这么写的：
+```javascript
+module.exports={
+  entry:{
+    "page/main/main":'./src/js/index.js',
+    "page/car/car":"./src/js/car.js",
+    "page/goods/goods":"./src/js/goods.js",
+    "vendor":["jquery"]
+  },
+  output:{
+    filename:"[name].[hash].js",
+    path:path.resolve(__dirname,'dist')
+  },
+    plugins:[
+      new webpack.HotModuleReplacementPlugin(),
+      new htmlWebpackPlugin({
+        title:"首页",
+        template:'./src/index.html',
+        filename:"index.html",
+        chunks:["page/main/main","vendor","mainfest"]
+      }),
+      new htmlWebpackPlugin({
+        title:"购物车",
+        template:'./src/index.html',
+        filename:"car.html",
+        chunks:["page/car/car","vendor","mainfest"]
+      }),
+      new htmlWebpackPlugin({
+        title:"商品",
+        template:'./src/index.html',
+        filename:"goods.html",
+        chunks:["page/goods/goods","vendor","mainfest"]
+      })
+      ]
+```
+
+可惜发现，我们在entry中手动引入了多个文件，在plugins中，我们又手动的多次new htmlWebpackPlugin()。虽然能够正常的运行，然而存在很多限制。首先存在大量重复的代码，现在只有3个页面，假如现有10个页面，那么你就得手动的new10次，在enrty中输入10个入口。其次，当增加新的页面时，又得过来webpack的配置里面手动的再加入到入口文件中。明显的，对于这些重复的而且长得很像的，如果能自动获取到需要配置的文件，并且在一个循环里面调用，那就方便多了。
+
+使用golb来获取文件
+
+//引入glob
+var glob= require('glob');
+
+//读取src目录下所有的html文件
+var files = glob.sync('./src/*.html');
+var entry={};
+var plugins=[];
+
+//循环将文件
+files.forEach(function(item,i){
+    //item类似：./src/index.html
+
+    var htmlName=item.slice(item.lastIndexOf("/")+1);
+    //最后生成的文件名只需要最后面的名字index.html
+    
+    var name=htmlName.split(".")[0];
+
+    //添加到entry入口，并制定生成文件的目录
+    entry["page/"+name+"/"+name]='./src/js/'+name+'.js'
+
+    //生成htmlWebpackPlugin实例
+    plugins.push(
+        new htmlWebpackPlugin({
+            template:item,
+            filename:htmlName,
+            chunks:["page/"+name+"/"+name/*]
+        })
+    )
+});
+
+module.exports={
+    entry:entry,
+    output:{
+        filename:"[name].[chunkhash].js",
+        path:path.resolve(__dirname,'dist'),
+  },
+ 
+
+  module:{
+    rules:[
+          {
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: {
+                loader: 'babel-loader'          
+              }
+        },  
+    ]
+  },
+  plugins:plugins
+}
+
+可以发现，使用glob.sync来读取文件并进行循环操作，原本需要手动操作的部分，循环已经帮我们处理好了。原本需要很多new new htmlWebpackPlugin()已经不再存在，而且即使后续需要添加新的页面，也不需要我们手动去添加，glob.sync会自己去读取所有的*.html文件，接着循环会帮我们处理。这里唯一需要注意的地方就是，index.html对应的js文件必须为index.js，ceshi.html文件对应的文件必须为ceshi.js,至于js里面需要引入其他库，或者自己写的工具函数，只需引入即可，webpack会自己处理好。
+
+因此，当页面存在引用相同的库时，最好还是将这些库文件提取到单独的文件，页面只保留业务逻辑的js代码。为了提取文件，有2中处理方案：
+
+1：使用CommonsChunkPlugin来提取
+在上面的代码上增加：(这部分代码只在使用CommonsChunkPlugin时需要)
+------
+  entry.vendor=[
+     //举例如下：
+     "vue","vuex","axios","jquery","vue-router","moment","lodash"
+  ];
+
+  plugins=[   
+     new webpack.optimize.CommonsChunkPlugin({
+         name:["vendor","mainfest"]
+       })
+  ]
+
+  //修改循环中的chunks,增加vendor以及mainfest:
+  files.forEach(function(item,i){
+      plugins.push(
+          new htmlWebpackPlugin({
+              template:item,
+              filename:htmlName,
+              chunks:["page/"+name+"/"+name,"vendor","mainfest"]
+          })
+      )
+  });
+------
+
+再执行webpack,可以发现公共的库已经被提取到单独的vendor文件。
+
+2:使用DLL
+
+对于 CommonsChunkPlugin，webpack 每次打包实际还是需要去处理这些第三方库，只是打包完之后，能把第三方库和我们自己的代码分开。而DLLPlugin 则是能把第三方代码完全分离开，即每次只打包项目自身的代码。
+
+这里我使用的是autodll-webpack-plugin。
+
+//安装模块
+npm install --save-dev autodll-webpack-plugin
+
+//引入模块
+var AutoDllPlugin = require('autodll-webpack-plugin');
+
+在plugins中添加插件：（需要放在循环之前，防止数组被重新赋值）
+var plugins=[
+  new AutoDllPlugin({
+        //文件名
+        filename: '[name].[hash].js', 
+
+        //文件路径
+        path: './page/common/',
+
+        //是否将生成的Js文件注入到html文件中
+        inject:true,
+
+        //需要分离的库
+        entry: {
+          vendor: [
+            "vue","vuex","axios","jquery","vue-router","moment","lodash","vue-touch","vue-lazyload"
+          ]
+        },
+
+        //压缩代码（注意这里是压缩分离出来的库文件代码，跟外面的要区分开来，如果外面的需要压缩，外面的plugins中也需要new一个压缩实例）
+        plugins: [
+          new webpack.optimize.UglifyJsPlugin()
+        ]
+      })
+] 
+
+执行webpack命令，可以发现公共的库文件也被打包到单独的文件了。autodll-webpack-plugin在内存中缓存了文件，所以当你第二此执行webpack命令进行打包时，可以明显发现打包时间少了很多。
+
+ 
+
+
+
