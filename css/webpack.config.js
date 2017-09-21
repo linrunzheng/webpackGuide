@@ -23,6 +23,7 @@ module.exports={
       {
         test: /\.s?css$/,
               use: extractSass.extract({
+
                   use: [
                   {
                       loader: "css-loader"
@@ -38,7 +39,6 @@ module.exports={
                   {
                       loader: "sass-loader"
                   }],
-                  // use style-loader in development 
                   fallback: "style-loader"
               })
           }

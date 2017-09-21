@@ -1,0 +1,304 @@
+.tab-content>.tab-pane{padding-left: 42px;padding-top: 10px;border-left: 1px solid #eee;}
+/* 常见问题 */
+.commProblem .scrBtn{ min-height:2px; box-shadow:0 2px 0 #fff; position:relative}
+.commProblem .scrBtn span{ display:inline-block; width:130px; padding:1.5% 0; margin:0 2.5% 0 0; text-align:center;border:1px solid #d2d2d2; color:#7e7e7e; cursor:default}
+.commProblem .scrBtn span:last-child{ margin:0}
+.commProblem .scrBtn span.active{ background:#cd2332; color:#fff;border:1px solid #cd2332;}
+.commProblem .problemList{ /*max-height:480px;*/ overflow-y:auto}
+.commProblem .problemList > div:first-child{ padding:0 0 4% 0;}
+.commProblem .problemList > div{ padding: 4% 0; border-top:1px solid #eee}
+.commProblem .problemList > div h5{ font-weight: bold;font-size: 16px;color:#7e7e7e; position:relative; padding:13px 0 13px 60px; margin:0 0 1.5% 0}
+.commProblem .problemList > div h5:before,.commProblem .problemList > div h5 + p:before{display:block;width:40px; height:40px; border-radius:180px;font-family:'icon'; font-size:28px; text-align:center; line-height:1.6; color:#fff; font-weight:normal; position: absolute; left:0;}
+.commProblem .problemList > div h5:before{ background:#7e7e7e;content:'\ea16'; top:0}
+.commProblem .problemList > div h5 + p:before{ background:#cd2332;content:'\ea17'; top:8px}
+.commProblem .problemList > div p{ color:#2a2a2a;line-height: 1.8; position:relative; padding:0 0 0 60px; margin:0 !important;}
+
+/* 下载 */
+.download{}
+.download > div:first-child h5{ margin:0}
+.download > div h5{ border-left:8px solid #cd2332; color:#2a2a2a; margin:3% 0 0 0; padding:0 10px;font-weight: bold;font-size: 16px; }
+.download > div > div{ border-bottom:1px solid #eee; position:relative;padding:2% 0}
+.download > div > div p{ display:block; position:relative; cursor:default; border:1px solid #fff; color:#2a2a2a !important; padding:1% 0; margin:0 !important}
+.download > div > div p:hover:before{ display:block; content:'';height:100%;position:absolute;top:0; left:-10px; right:-10px;border:1px solid #fff;border:1px solid #cd2332;background:#fcf4f5; z-index:0}
+.download > div > div p{}
+.download > div > div p em{ position:relative; z-index:1;font-style: normal;}
+.download > div > div p time{ display:block; float:right; position:relative ; z-index:1; color:#7e7e7e; margin:0 5% 0 0}
+.download > div > div p span{ display:block; width:60px; height:30px; border-radius:4px; cursor:pointer;background:#cd2332; position:relative; float:right; text-align:center;margin-top: -5px;}
+.download > div > div p span:after{ font-family:'icon'; content:'\ea18'; font-size:22px; text-align:center; line-height:1.5; color:#fff}
+
+/* 查询 */
+.searchKey{}
+.searchKey > div p{ color:#2a2a2a !important;font-size: 14px;margin-bottom:20px ;}
+
+.searchKey .search{ margin:2% 0; width:100%; max-width:500px; position:relative; font-size:14px}
+.searchKey .search input{box-sizing:border-box;display:inline-block;padding:1.8% 10px;width:48%;margin:0 0 0 5%;border-radius:2px; border:1px solid #d2d2d2}
+.searchKey .search span.searchBtn{ box-sizing:border-box;display:block; width:22%; text-align:center; background:#cd2332; color:#fff; float:right; padding:2% 0; font-size:16px; cursor:pointer; border:1px solid #cd2332; border-radius:2px}
+.searchKey .showKey{width:100%;color:#fff;display: none; margin-top: 45px;}
+.searchKey .showKey h3{ text-align:center;padding:0 0 7% 0 !important;}
+.searchKey .showKey h3 img{ margin:auto}
+.searchKey .showKey > div { padding-top:150px;padding-left:10%;background:url("../images/aboutUs/search.jpg") no-repeat 0 0;background-size:contain;border:10px solid #fff;position: relative;min-height: 400px;}
+.searchKey .showKey > div > div{padding:0;height: 39px;height: 39px;color:#807777;max-width: 78%;overflow: hidden;}
+.searchKey .showKey > div > div:after{ content:''; display:block;clear:both}
+.searchKey .showKey > div > div span{ display:block;font-size:16px;line-height:1.5; float:left}
+.searchKey .showKey > div > div span:first-child{ width:80px;height:20px;text-align:justify; text-align-last:justify;overflow:hidden}
+.searchKey .showKey > div > div span:last-child{ text-align: left;max-width: 350px;overflow: hidden;display: inline-block;height: 22px;}
+.searchKey .showKey strong{position: absolute;top:12px;left:12px;}
+.searchKey .showKey strong{height: 22px;}
+.nofind{color:red;padding-top: 57px;display: none;}
+* {
+    font-family: Microsoft YaHei;
+}
+
+.scroll-wrap a {
+    color: #2a2a2a;
+}
+
+.scroll-wrap li.active a {
+    color: #cd2332;
+}
+
+/* #search .showKey{display: block;} */
+
+
+@media screen and (max-width: 760px) {
+	#m-nav{
+		background: #333;
+	}
+	.searchKey .showKey{
+		margin: 18% auto 0;
+	}
+	.download > div > div p time{
+		float: none;
+		margin-top: 10px;
+	}
+	.footer{padding-top: 50px;}
+
+
+	.main-content{
+		margin-top: 60px;
+	}
+    .scroll-wrap {
+        width: 100%;
+        overflow: hidden;
+        height: 42px;
+    }
+    .scroll-wrap-lv2 {
+        width: 100%;
+        overflow-x: scroll;
+        padding-bottom: 20px;
+    }
+    .scroll-wrap-lv2 ul {
+        width: 150%;
+    }
+    .scroll-wrap-lv2 ul li {
+        width: 16%;
+        text-align: center;
+        height: 42px;
+    }
+    .scroll-wrap-lv2 ul li a {
+        padding-left: 0;
+        padding-right: 0;
+    }
+	.tab-content>.tab-pane{
+		padding-left: 12px;
+		padding-right: 8px;
+	}
+	.commProblem .problemList > div h5{
+		margin-top: 12px;
+		margin-bottom: 12px;
+	}
+	#certificateNo{
+		width: 100%;
+		margin: 15px 0;
+	}
+	#certificateNoQuery{
+		width: 100%;
+	}
+
+   
+}
+
+@media (min-width:768px) and (max-width: 965px) {
+	#m-nav{
+		background: #333;
+	}
+	.main-content{
+		margin-top: 90px;
+	}
+	.tab-content>.tab-pane{
+		padding-right: 14px;
+	}
+    .scroll-wrap-lv2 ul {
+        width: 100%;
+    }
+    .scroll-wrap-lv2 ul li {
+        width: 25%;
+        width: 16%;
+        text-align: center;
+    }  
+     .swiper-slide >span{
+     	padding-top: 46px;    	
+     }
+     .swiper-slide >h3{
+     	font-size: 16px;
+     }
+}
+@media screen and (max-width:970px){
+    #MAIN{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    	border: none;
+    	color: #cd2332;
+    }
+    .searchKey .showKey > div{
+        padding: 0;
+        padding-top: 77px;
+        min-height: 260px;
+    }
+    .searchKey .showKey > div > div{
+        max-width: 85%;
+        margin: 0 auto;
+    }
+    .searchKey .showKey > div > div{
+        height: 24px;
+        line-height: 24px;
+    }
+    .searchKey .showKey > div > div span{
+        font-size: 12px;
+        text-align: left;
+    }
+    .searchKey .showKey > div > div span:first-child{
+        text-align: left;
+        width: 60px;
+    }
+    .searchKey .showKey > div > div span:last-child{
+        max-width: 70%;
+    }
+
+    .download > div > div p:hover:before{
+        background: none;
+        border: none;
+    }
+}
+
+@media screen and (min-width:970px) {
+	#pc-nav{background: rgba(0,0,0,0.8)!important;}
+	
+    /* 左侧导航滚动条 */
+    .scroll-wrap {
+        float: left;
+        width: 200px;
+        text-align: center;
+        background: #fff;
+    }
+    .scroll-wrap li {
+        float: none;
+        border-bottom: 1px solid #eee;
+    }
+    .scroll-wrap li a {
+        padding: 23px 15px;
+        padding-left: 0;
+        font-size: 16px;
+    }
+    .nav-tabs {
+        padding-left: 20px;
+        padding-right: 20px;
+        border-bottom: none;
+    }
+    .nav-tabs>li.active>a,
+    .nav-tabs>li.active>a:focus,
+    .nav-tabs>li.active>a:hover {
+        background: none;
+        color: #cd2332;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+    .nav>li>a:hover {
+        text-decoration: none;
+        background-color: transparent;
+        color: #cd2332;
+        border-left: 0;
+        border-right: 0;
+    }
+    .nav>li.active i,
+    .nav>li>a:hover i {
+        border-top-color: #cd2332;
+        border-right-color: #cd2332;
+    }
+    .nav-tabs em {
+        margin-right: 12px;
+    }
+    .nav-tabs i {
+        content: '';
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -3.5px;
+        border-top: 2px solid #999;
+        border-right: 2px solid #999;
+        transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    /* 左侧导航滚动条 */
+    /* 右侧内容 */
+    .tab-content {
+        padding-left: 200px;
+        padding-top: 20px;
+        box-sizing: border-box;
+        background: #fff;
+        min-height: 350px;
+    }
+    
+    .tab-content .container {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 60px;
+        border-left: 1px solid #eee;
+    }
+   
+   
+    .aboutus-banner{
+    	width: 100%;
+    	height: 200px;
+    	background: url('../images/aboutUs/aboutBg.jpg') no-repeat center/cover;
+    	margin-top: 20px;
+    	margin-bottom: 45px;
+    }
+    #us a{
+    		color: #7e7e7e;
+    		font-size: 20px;
+    		font-weight: bold;
+    }
+	#us a::before{
+		content: "\ea32";
+		font-family: icon2;
+		color: #7e7e7e;
+		font-weight: bold;
+		margin-right: 8px;
+	}
+   	#us:hover,#us a:hover{
+		color: #7e7e7e;
+   	}
+   	
+   
+    /* 右侧内容 */
+    .main-content{
+		padding: 120px 20px 90px;
+		border-bottom: 1px solid #eee;
+        background: #f9f9f9;
+	}
+	.tab-content{
+		padding-bottom: 50px;
+	}	
+    .download > div > div p span{
+        margin-top: -5px;
+    }
+}
+

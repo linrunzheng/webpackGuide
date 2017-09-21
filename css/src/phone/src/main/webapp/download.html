@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>云宏专有云 企业信息云管家</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/download.css">
+    <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+
+<body>
+    
+    <div class="mianNav-wrap hidden-lg hidden-md" id="iscroll">
+        <div id="scrollWrap">
+            <ul class="nav navbar-nav" id="main-nav">
+                <li><a href="./index.html">首页</a></li>
+                <li class="current"><a href="./machine.html">超融合一体机</a><span class="glyphicon glyphicon-menu-down"></span>
+                    <ul class="child-nav">                     
+                        <li><a href="./product_nav.html">超融合服务器</a></li>
+                        <li><a href="./core_technology.html">超融合核心技术</a></li>
+                        <li><a href="./cloud_server.html">云服务中心</a></li>
+                    </ul>
+                </li>
+                <li><a href="./cloud_desk.html">云桌面</a></li>
+                <li class="current">
+                    <a href="./resolve_plan.html?id=0">解决方案</a><span class="glyphicon glyphicon-menu-down"></span>
+                    <ul class="child-nav">
+                        <li><a href="./resolve_plan.html?id=0">金融</a></li>
+                        <li><a href="./resolve_plan.html?id=1">政府</a></li>
+                        <li><a href="./resolve_plan.html?id=2">教育</a></li>
+                        <li><a href="./resolve_plan.html?id=3">医疗</a></li>
+                        <li><a href="./resolve_plan.html?id=4">企业</a></li>
+                        <li><a href="./resolve_plan.html?id=5">运营商</a></li>
+                    </ul>
+                </li>
+                <li><a href="./recruit.html">渠道招募</a></li>
+                <li><a href="./download.html">支持与下载</a></li>
+                <li><a href="./aboutUs.html?id=0">关于我们</a></li>
+                <li><a href="./aboutUs.html?id=1">联系我们</a></li>
+            </ul>
+        </div>
+        <!-- 移动端导航遮罩 -->
+        <div class="mask"></div>
+        <!-- 移动端导航 -->
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg" id="m-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="" class="navbar-toggle show-btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="./index.html" class="navbar-brand"></a>
+            </div>
+        </div>
+    </nav>
+    <!-- 移动端导航 -->
+    <!-- pc端导航 -->
+    <nav class="navbar navbar-default navbar-fixed-top hidden-xs hidden-sm" id="pc-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" id="pc-logo"><img src="./images/pc-LOGO.png" alt=""></a>
+            </div>
+            <ul class="nav navbar-nav pc-top-nav">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./machine.html">超融合一体机</a>
+                    <ul class="pc-lv2-nav nav">
+                       
+                        <li><a href="./product_nav.html">超融合服务器</a></li>
+                        <li><a href="./core_technology.html">超融合核心技术</a></li>
+                        <li><a href="./cloud_server.html">云服务中心</a></li>
+                    </ul>
+                </li>
+                <li><a href="./cloud_desk.html">云桌面</a></li>
+                <li><a href="./resolve_plan.html">解决方案</a></li>
+                <li><a href="./recruit.html">渠道招募</a></li>
+                <li><a href="./download.html" class="pc-nav-active">支持与下载</a>
+                    <ul class="pc-lv2-nav nav">
+                        <li><a href="./download.html?id=0">常见问题</a></li>
+                        <li><a href="./download.html?id=1">资料下载</a></li>
+                        <li><a href="./download.html?id=2">序列号查询</a></li>
+                    </ul>
+                </li>
+                <li><a href="./aboutUs.html?id=0">关于我们</a>
+                    <ul class="pc-lv2-nav nav">
+                        <li><a href="./aboutUs.html?id=0">公司简介</a></li>
+                        <li><a href="./aboutUs.html?id=1">联系我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- pc端导航 -->
+
+   <div class="container" id="MAIN">
+        <div class="main-content">
+        <!-- Nav tabs -->
+        <div class="scroll-wrap">
+            <div class="scroll-wrap-lv2">
+                <ul class="nav nav-tabs" role="tablist" id="scrollList">
+                    <li class="hidden-sm hidden-xs" id="us">
+                        <a>支持&下载</a>
+                    </li>
+                    <li role="presentation"><a href="#question" aria-controls="question" role="tab" data-toggle="tab">常见问题<i class="hidden-xs hidden-sm triangle"></i></a></li>
+                    <li role="presentation"><a href="#download" aria-controls="download" role="tab" data-toggle="tab">资料下载<i class="hidden-xs hidden-sm triangle"></i></a></li>
+                    <li role="presentation"><a href="#search" aria-controls="search" role="tab" data-toggle="tab">序列号查询<i class="hidden-xs hidden-sm triangle"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Tab panes <-->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane" id="question">
+                <div class="contList commProblem">
+                    <div class="scrBtn">
+                        <!--<span class="active">全部</span>  没那么多，先注释掉
+                                <span>宏云+产品问题</span>
+                                <span>渠道合作问题</span>-->
+                    </div>
+                    <div class="problemList">
+                        <div class="prb1">
+                            <h5>云宏专有云是什么？</h5>
+                            <p>云宏专有云是云宏信息公司为中小企业定制的一朵企业私有云，提供云管理平台，协助企业便捷管理云主机，丰富的企业信息化应用帮助企业构建移动办公平台。</p>
+                        </div>
+                        <div class="prb2">
+                            <h5>云管理平台可以管理哪些资源？</h5>
+                            <p>云管理平台对数据中心的所有资源，包括服务器、存储、网络、虚拟机、镜像资源进行统一管理，基于策略的资源分配、调度，保证业务连续性，实现资源的弹性伸缩，全面的支撑IT运维保障工作。</p>
+                            <p>· 物理机管理（发现和纳管，网络管理，性能监控）</p>
+                            <p>· 资源池管理（容量信息，所管理的物理主机和虚机，统计信息，资源池内物理机HA）</p>
+                            <p>· 虚拟机管理（虚拟机的全生命周期管理，虚拟机调整CPU和内存，在线离线迁移/跨资源池迁移，虚拟机网络管理，虚拟</p>
+                            <p>· 机的磁盘管理，虚拟机转换成模板，虚机的实时性能监控）</p>
+                            <p>· 虚拟机模板管理</p>
+                        </div>
+                        <div class="prb2">
+                            <h5>云管理平台如何纳管资源？</h5>
+                            <p>云管理平台界面的资源导航中选择创建的数据中心，在“数据中心”界面中的“常用任务”下单击“添加资源”（或单击右键选择“添加资源”），添加资源窗口输入需要纳管的“物理主机IP”，并输入对应的“用户名”和“密码”，单击“发现主机”，即可成功纳管该资源</p>
+                            <p>· 存放在企业云盘上的数据会不会因为服务器宕机而丢失</p>
+                            <p> 企业云盘采用分布式存储,将一个文件分成若干小片,并分散存储在多个服务器上。而且一个文件会保留2个副本。保证了信息文档不会因为物理机故障的原因导致数据丢失。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="download">
+                <div class="contList download" style="display: block;">
+                    <div>
+                        <h5>白皮书下载</h5>
+                        <div>
+                            <p>
+                                <em>云宏超融合一体机产品介绍白皮书</em>
+                                <a href="webapi/files/download?filepath=/tmp/doc/云宏超融合一体机产品介绍白皮书.pdf">
+                                    <span id="xxx"></span>
+                                </a>
+                                <time>2016-11-03</time>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 
+                    <div>
+                        <h5>用户手册下载</h5>
+                        <div>
+                            <p>
+                                <em>宏云+专有云-云管理平台操作手册</em>
+                                <a href="webapi/files/download?filepath=/tmp/doc/宏云专有云云管理平台操作手册.docx">
+                                    <span id="xxx"></span>
+                                </a>
+                                <time>2016-11-03</time>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <em>企业云应用中心后台快速使用指引</em>
+                                <a href="webapi/files/download?filepath=/tmp/doc/企业云应用中心后台快速使用指引.pptx">
+                                    <span id="xxx"></span>
+                                </a>
+                                <time>2016-11-03</time>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <em>企业云应用中心前台快速使用指引</em>
+                                <a href="webapi/files/download?filepath=/tmp/doc/企业云应用中心前台快速使用指引.pptx">
+                                    <span id="xxx"></span>
+                                </a>
+                                <time>2016-11-03</time>
+                            </p>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="search">
+                <div class="contList searchKey">
+                    <div>
+                        <p>尊敬的客户：</p>
+                        <p>您可通过输入宏云+云服务中心权利证明编号查询到授权的相关信息，权利证明编号是一整授权认证的标记，严禁以任何不法手段破解或将产品序列号作为谋取利润的违法行为，我们将保留追究法律责任。</p>
+                        <div class="search">权利证明编号查询
+                            <input type="text" id="certificateNo" placeholder="输入证书编号">
+                            <span id="certificateNoQuery" class="searchBtn">查询</span>
+                        </div>
+                    </div>
+                    <div class="showKey">
+                        <div>
+                            <div>
+                                <span>公司名称：</span>
+                                <span id="companyName"></span>
+                            </div>
+                            <div>
+                                <span>联系人：</span>
+                                <span id="name"></span>
+                            </div>
+                            <div>
+                                <span>联系电话：</span>
+                                <span id="phoneNumber"></span>
+                            </div>
+                            <div>
+                                <span>联系邮箱：</span>
+                                <span id="email"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="nofind"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+    <!-- 底部广告 -->
+    <div class="footer hidden-lg hidden-md">
+        <p class="text-center gobackTop hidden-md hidden-lg"><span><i></i>返回顶部</span></p>
+        <div class="text-center call-server">
+            <a href="tel:400-6300003" type="button" class="server-phone"><span></span>客服电话400-6300003转4</a>
+        </div>
+        <div>
+            <ul class="nav text-center" id="bottom-nav">
+                <li><a href="./download.html">支持与下载</a></li>
+                <li><a href="./aboutUs.html">关于我们</a></li>
+                <li><a target="_blank" href="http://www.winhong.com">云宏官网</a></li>
+            </ul>
+        </div>
+        <p class="text-center copyright">版权所有 云宏信息科技股份有限公司 2015-2017</p>
+        <p class="text-center copyright">粤ICP备10104379号-5</p>
+    </div>
+    <!-- pc底部 -->
+    <div class="footer-pc hidden-xs hidden-sm">
+        <div class="container">
+            <ul class="nav row">
+                <li class="col-md-2 col-lg-2">
+                    <h5>超融合一体机</h5>
+                    <a href="./product_nav.html">超融合服务器</a>
+                    <a href="./core_technology.html">超融合核心技术</a>
+                    <a href="./cloud_server.html">云服务中心</a>
+                    <a href="./cloud_desk.html">云桌面</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>解决方案</h5>
+                    <a href="./resolve_plan.html?id=0">金融</a>
+                    <a href="./resolve_plan.html?id=1">政府</a>
+                    <a href="./resolve_plan.html?id=2">教育行业</a>
+                    <a href="./resolve_plan.html?id=3">医疗机构</a>
+                    <a href="./resolve_plan.html?id=4">企业</a>
+                    <a href="./resolve_plan.html?id=5">运营商</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>帮助与支持</h5>
+                    <a href="./download.html?id=0">常见问题</a>
+                    <a href="./download.html?id=1">资料下载</a>
+                    <a href="./download.html?id=2">序列号查询</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>关于我们</h5>
+                    <a href="./aboutUs.html?id=0">公司简介</a>
+                    <a href="./aboutUs.html?id=1">联系我们</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>其他</h5>
+                    <a target="_blank" href="http://www.winhong.com">云宏官网</a>
+                    <a target="_blank" href="http://www.zkuyun.com">知库</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>关注我们</h5>
+                    <div>
+                        <img src="images/ewm.png">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="copyright-pc">
+            <div class="content">
+                <div>
+                    <p><span><img src="images/footLogo.png"></span>Copyright©2011-<i><script>var cy=new Date();document.write(cy.getFullYear())</script></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 粤ICP备10104379号-5
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightSideBar hidden-xs hidden-sm">
+        <div class="contactUs">
+            <span>联系我们</span>
+            <div class="contactInfor">
+                <a class="consultant" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2848614459&amp;site=qq&amp;menu=yes">销售顾问</a>
+                <a class="tel">400-6300003转4</a>
+                <a class="E-mail">siyouyun@winhong.com</a>
+                <span class="ewm"><img src="images/ewm.png"><br><em>官方微信，扫码关注</em></span>
+            </div>
+        </div>
+        <div class="returnTop" title="返回顶部"></div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var url = window.location.search;
+        var id = url.slice(url.lastIndexOf("?") + 1).split("=")[1] || 0;
+        if(id!=0){
+             $(".gobackTop").hide();
+        }
+        $(".tab-pane").eq(id).addClass("active");
+        $("[role='presentation']").eq(id).addClass("active");
+
+        $('[role="presentation"]').click(function(){
+            var index=$('[role="presentation"]').index($(this));
+            if(index==0){
+                $(".gobackTop").show();
+            }else{
+                $(".gobackTop").hide();
+            }
+        })
+        
+    })
+    </script>
+</body>
+<script type="text/javascript" src="public/layer/layer.js"></script>
+<script type="text/javascript" src="public/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+/**
+ * 证书编号查询
+ */
+$("#certificateNoQuery").click(function() {
+
+    //获取【证书编号】
+    var certificateNo = $("#certificateNo").val();
+    $.ajax({
+        type: "get",
+        url: "cloud/yunAppOrg/" + certificateNo,
+        datatype: "json",
+        // data:{"certificateNo":certificateNo},
+        statusCode: {
+            200: function(data) {
+                if (data != "") {
+                    $(".nofind").hide();
+                    $("#companyName").text(data.name); //公司名称
+                    $("#name").text(data.contacts); //联系人
+                    $("#phoneNumber").text(data.phone); //联系电话
+                    $("#email").text(data.email); //联系邮箱
+                    $(".searchKey .showKey").show();
+                }
+            },
+            404: function() {
+                $(".searchKey .showKey").hide();
+                $(".nofind").html('权利证明编号查询失败，您输入的权利证明编号不存在，请重新查询。').show();
+                $("#companyName").text(""); //公司名称
+                $("#name").text(""); //联系人
+                $("#phoneNumber").text(""); //联系电话
+                $("#email").text(""); //联系邮箱
+            },
+            500: function() {
+                $(".searchKey .showKey").hide();
+                $(".nofind").html('查询失败，请重新查询。').show();
+                $("#companyName").text(""); //公司名称
+                $("#name").text(""); //联系人
+                $("#phoneNumber").text(""); //联系电话
+                $("#email").text(""); //联系邮箱
+            }
+        }
+    });
+});
+</script>
+
+</html>

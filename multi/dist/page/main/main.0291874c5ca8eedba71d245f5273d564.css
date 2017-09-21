@@ -1,0 +1,36 @@
+@import url(//at.alicdn.com/t/font_s0zqwb6by3lhm2t9.css);body {
+  border: 1px solid #000; }
+
+div#myApp {
+  width: 500px;
+  height: 250px;
+  background: url(img/background.9112948.jpg) no-repeat center; }
+
+div#base64 {
+  width: 500px;
+  height: 250px;
+  background: url(img/style-error.e814b06.png) no-repeat center; }
+@font-face {
+  font-family: 'icon2';
+  src: url(font/icon.5958b86.ttf);
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis; }
+
+body {
+  -webkit-transform: scale(90deg);
+      -ms-transform: scale(90deg);
+          transform: scale(90deg);
+  -webkit-animation: all 2s;
+          animation: all 2s;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }

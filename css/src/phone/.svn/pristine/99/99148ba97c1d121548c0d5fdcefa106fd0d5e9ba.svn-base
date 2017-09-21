@@ -1,0 +1,411 @@
+/* 字体土标 */
+
+.finance::before {
+    content: '\ea38';
+    margin-right: 8px;
+}
+
+.goverment::before {
+    content: '\ea39';
+    margin-right: 8px;
+}
+
+.education::before {
+    content: '\ea40';
+    margin-right: 8px;
+}
+
+.hospital::before {
+    content: '\ea41';
+    margin-right: 8px;
+}
+
+.company::before {
+    content: '\ea42';
+    margin-right: 8px;
+}
+
+.operate::before {
+    content: '\ea43';
+    margin-right: 8px;
+}
+
+.icons1::before {
+    content: "\ea38";
+    font-size: 24px;
+}
+
+.icons2::before {
+    content: "\ea39";
+    font-size: 24px;
+}
+
+.icons3::before {
+    content: "\ea40";
+    font-size: 24px;
+}
+
+.icons4::before {
+    content: "\ea41";
+    font-size: 24px;
+}
+
+.icons5::before {
+    content: "\ea42";
+    font-size: 24px;
+}
+
+.icons6::before {
+    content: "\ea43";
+    font-size: 24px;
+}
+
+* {
+    font-family: Microsoft YaHei;
+}
+
+.scroll-wrap a {
+    color: #2a2a2a;
+}
+
+.scroll-wrap li.active a {
+    color: #cd2332;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    color: #cd2332;
+}
+
+
+/* 文字列表小圆点 */
+
+.tab-content ul {
+    padding: 0;
+}
+
+.tab-content ul li {
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.9;
+}
+
+.tab-content ul li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cd2332;
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+
+
+/* 文字列表小圆点 */
+
+
+/* 顶部大图 */
+.jumbotron {
+    background: url("../images/resolve-plan/banner-phone.jpg") no-repeat center/cover;
+    height: 450px;
+    margin-bottom: 5px;
+}
+.jumbotron h1 {
+    color: #fda833;
+    font-size: 28px;
+    margin-top: 40px;
+    padding: 8px;
+    font-weight: bold;
+}
+.jumbotron p {
+    color: #fda833;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+}
+/* 顶部大图 */
+
+.use_place .main {
+    color: #cd2332;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.use_place .title {
+    color: #000;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.use_place p {
+    color: #4a4a4a;
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.use_place .sub-title {
+    color: #000;
+    font-size: 15px;
+    position: relative;
+    text-indent: 14px;
+}
+
+.use_place .sub-title::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 5px;
+    height: 16px;
+    background: #cd2332;
+}
+
+
+/* 文字底部大图 */
+.bot-banner {
+    padding-top: 20px;
+}
+.bot-banner img {
+    width: 100%;
+}
+/* 文字底部大图 */
+@media screen and (max-width: 965px) {
+	 .main-content{
+		padding-bottom: 40px;
+	}
+	.swiper-slide >span{
+		float: left;
+		width: 42%;
+		height: 100%;
+		padding-right: 5%;
+		text-align: center;
+		font-size: 18px;
+		padding-top: 70px;
+	}
+	.swiper-slide >span i{
+		color: #fff;
+		font-style: normal;
+		margin-bottom: 30px;
+	}
+	.swiper-slide >h3{
+		float: left;
+		width: 58%;
+		height: 100%;
+		font-size: 14px;
+		color: #fff;
+		margin: 0;
+		line-height: 1.8;
+		padding-top: 58px;
+	}
+	.swiper-slide >h3 em{
+		font-style: normal;
+	}
+	.swiper-wrapper{
+		height: 210px!important;		
+	}
+	.swiper-slide{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+    #MAIN{
+        padding: 0;
+    }
+   #MAIN a{border: none;}
+   .scroll-wrap{border-bottom: 1px solid #ddd;}
+   .scroll-wrap .icon2{position: relative;}
+   .scroll-wrap .icon2::before{
+    position: absolute;
+    left: -18px;
+    top: 50%;
+    margin-top: -15px;
+}
+   
+   
+	
+
+}
+
+@media screen and (max-width: 760px) {
+    .scroll-wrap {
+        width: 100%;
+        overflow: hidden;
+        height: 42px;
+    }
+    .scroll-wrap-lv2 {
+        width: 100%;
+        overflow-x: hidden;
+        padding-bottom: 20px;
+    }
+    .scroll-wrap-lv2 ul {
+        width: 224%;
+    }
+    .scroll-wrap-lv2 ul li {
+        width: 16.5%;
+        text-align: center;
+        height: 42px;
+    }
+    .scroll-wrap-lv2 ul li a {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+   
+}
+
+@media (min-width:768px) and (max-width: 965px) {
+    .scroll-wrap-lv2 ul {
+        width: 100%;
+    }
+    .scroll-wrap-lv2 ul li {
+
+        width: 16.66%;
+        text-align: center;
+    }  
+     .swiper-slide >span{
+     	padding-top: 46px;    	
+     }
+     .swiper-slide >h3{
+     	font-size: 16px;
+     }
+     #scrollList  a{
+        padding-left: 0;
+        padding-right: 0;
+     }
+}
+
+@media screen and (max-width: 965px) {
+     .scroll-wrap-lv2 ul li em{
+        margin-right: 10px;
+     }
+}
+
+
+@media screen and (min-width:970px) {
+
+    .jumbotron{
+        background:url("../images/resolve-plan/resolve-pc.jpg") no-repeat center/cover;
+        height: 600px;
+    }
+
+	.jumbotron h1{
+		text-align: left;
+		font-size: 54px;
+		font-weight: normal;
+		margin-top: 200px;
+		padding: 12px;
+		padding-left:0;
+	}
+	.jumbotron p{
+		text-align: left;
+		padding-left:0;
+		font-size: 30px;
+	}
+    /* 左侧导航滚动条 */
+    .scroll-wrap {
+        float: left;
+        width: 200px;
+        text-align: center;
+    }
+    .scroll-wrap li {
+        float: none;
+        border-bottom: 1px solid #eee;
+    }
+    .scroll-wrap li a {
+        padding: 23px 15px;
+        padding-left: 0;
+        font-size: 16px;
+    }
+    .nav-tabs {
+        padding-left: 20px;
+        padding-right: 20px;
+        border-bottom: none;
+    }
+    .nav-tabs>li.active>a,
+    .nav-tabs>li.active>a:focus,
+    .nav-tabs>li.active>a:hover {
+        background: none;
+        color: #cd2332;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+    .nav>li>a:hover {
+        text-decoration: none;
+        background-color: transparent;
+        color: #cd2332;
+        border-left: 0;
+        border-right: 0;
+    }
+    .nav>li.active i,
+    .nav>li>a:hover i {
+        border-top-color: #cd2332;
+        border-right-color: #cd2332;
+    }
+    .nav-tabs em {
+        margin-right: 12px;
+    }
+    .nav-tabs i {
+        content: '';
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -3.5px;
+        border-top: 2px solid #999;
+        border-right: 2px solid #999;
+        transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    /* 左侧导航滚动条 */
+    /* 右侧内容 */
+    .tab-content {
+        padding-left: 200px;
+        box-sizing: border-box;
+    }
+    .tab-pane{
+        border-left: 1px solid #eee;
+    }
+    #finance {
+       
+    }
+    .tab-content .container {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 60px;
+        max-width: 970px;
+    }
+    .use_place .sub-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    .use_place .title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #2a2a2a;
+    }
+    /* 右侧内容 */
+    .main-content{
+		padding-bottom: 70px;
+	}
+	/* /底部轮播图 */
+	.footBottom .swiper-container{width:100%;max-width:1080px; height:240px; margin:auto;position:relative;text-align:center;overflow:hidden;}
+	.footBottom .swiper-container .swiper-slide{float:left;padding:70px 0;}
+	.footBottom .swiper-container .swiper-slide:after{ display:block; content:''; clear:both}
+	.footBottom .swiper-container span{ display:block; float:left; width:32%; margin:10px 0; position:relative}
+	.footBottom .swiper-container span:after{ display:block; content:''; width:1px; height:100%; position: absolute; top:0; right:6%; background:rgba(255,255,255,0.3);}
+	.footBottom .swiper-container span img{ width:90%; max-width:250px; height:auto;}
+	.footBottom .swiper-container h3{ box-sizing:border-box; width:68%;max-width:740px; float:right; margin:auto; color:#ffa634;font-size: 20px;font-weight: normal;line-height:2; padding:0 40px; position:relative; text-align: justify}
+	.footBottom .swiper-container h3:before,.footBottom .swiper-container h3:after{ content:'\ea26'; display:block; width:30px; height:30px; font-family:'icon'; font-size:46px; text-align:center; line-height:0.6; color:rgba(253,168,51,0.3); position:absolute; top:0}
+	.footBottom .swiper-container h3:before{left:0; transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);-o-transform:rotate(180deg);-webkit-transform:rotate(180deg);}
+	.footBottom .swiper-container h3:after{right:0}
+	.footBottom .swiper-container h3 em{ font-weight:bold; font-size:26px;}
+	/* /底部轮播图 */
+}

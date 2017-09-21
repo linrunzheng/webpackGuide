@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.winhong.cloudweb.mapper.GuestMapper">
+
+	<resultMap id="BaseResultMap" type="com.winhong.cloudweb.pojo.Guest">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="enterprise" jdbcType="VARCHAR" property="enterprise" />
+		<result column="guest_name" jdbcType="VARCHAR" property="guestName" />
+		<result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="position" jdbcType="VARCHAR" property="position" />
+		<result column="createtime" jdbcType="VARCHAR" property="createtime" />
+	</resultMap>
+	
+	<!-- 新增操作 -->
+	<insert id="insert" parameterType="com.winhong.cloudweb.pojo.Guest">
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+		INSERT INTO yun_guest(enterprise,guest_name,phone_number,email,position,createtime)
+		VALUE (
+			#{enterprise,jdbcType=VARCHAR},
+			#{guestName,jdbcType=VARCHAR},
+			#{phoneNumber,jdbcType=VARCHAR},
+			#{email,jdbcType=VARCHAR},
+			#{position,jdbcType=VARCHAR},
+			#{createtime,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<!-- 查询操作 -->
+	<select id="queryGuestById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+		SELECT * 
+		FROM yun_guest
+		WHERE id = #{id,jdbcType=INTEGER}
+	</select>
+	
+	<!-- 修改操作 -->
+	<update id="updateGuest" parameterType="com.winhong.cloudweb.pojo.Guest">
+		update yun_guest
+		<set>
+			<if test="enterprise != null">
+				enterprise = #{enterprise,jdbcType=VARCHAR},
+			</if>
+			<if test="guestName != null">
+				guest_name = #{guestName,jdbcType=VARCHAR},
+			</if>
+			<if test="phoneNumber != null">
+				phone_number = #{phoneNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="position != null">
+				position = #{position,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<!-- 删除信息 -->
+	<delete id="deleteGuest" parameterType="java.lang.Long">
+		delete from yun_guest
+		 where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+</mapper>
