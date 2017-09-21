@@ -161,8 +161,29 @@ var plugins=[
       })
 ] 
 
-执行webpack命令，可以发现公共的库文件也被打包到单独的文件了。autodll-webpack-plugin在内存中缓存了文件，所以当你第二此执行webpack命令进行打包时，可以明显发现打包时间少了很多。
+执行webpack命令，可以发现公共的库文件也被打包到单独的文件了。autodll-webpack-plugin在内存中缓存了文件，所以当你第二此执行webpack命令进行打包时，可以明显发现打包时间少了很多。而CommonsChunkPlugin每次都全部重新打包再进行分离，所以当需要多次修改文件时，autodll-webpack-plugin可以明显降低打包的事件。
 
+
+使用webpack-merge区分生成环境和开发环境：
+很多时候，我们都需要针对不同的环境进行不用的操作。
+
+//比如在生成环境下分离css到单独文件：
+var extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
+});
+
+//在开发环境下使用代理
+devServer:{
+   proxy: {
+      'api': {
+          target: 'http://api.douban.com/v2/movie/',
+          secure: false,
+          changeOrigin: true
+      }
+  }
+
+  
  
 
 
