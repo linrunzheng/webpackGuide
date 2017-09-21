@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>云宏专有云 企业信息云管家</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/core-technology.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+     <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+
+<body>
+    
+  <div class="mianNav-wrap hidden-lg hidden-md" id="iscroll">
+        <div id="scrollWrap">
+            <ul class="nav navbar-nav" id="main-nav">
+            <li><a href="./index.html">首页</a></li>
+            <li class="current"><a href="./machine.html">超融合一体机</a><span class="glyphicon glyphicon-menu-down"></span>
+                <ul class="child-nav">                   
+                    <li><a href="./product_nav.html">超融合服务器</a></li>
+                    <li class="currentPlace"><a href="./core_technology.html">超融合核心技术</a></li>
+                    <li><a href="./cloud_server.html">云服务中心</a></li>
+                </ul>
+            </li>
+            <li class="current">
+                <a href="./resolve_plan.html?id=0">解决方案</a><span class="glyphicon glyphicon-menu-down"></span>
+                <ul class="child-nav">
+                    <li><a href="./resolve_plan.html?id=0">金融</a></li>
+                    <li><a href="./resolve_plan.html?id=1">政府</a></li>
+                    <li><a href="./resolve_plan.html?id=2">教育</a></li>
+                    <li><a href="./resolve_plan.html?id=3">医疗</a></li>
+                    <li><a href="./resolve_plan.html?id=4">企业</a></li>
+                    <li><a href="./resolve_plan.html?id=5">运营商</a></li>
+                </ul>
+            </li>
+            <li><a href="./recruit.html">渠道招募</a></li>
+            <li><a href="./download.html">支持与下载</a></li>
+            <li><a href="./aboutUs.html?id=0">关于我们</a></li>
+            <li><a href="./aboutUs.html?id=1">联系我们</a></li>
+        </ul>
+        </div>
+        <!-- 移动端导航遮罩 -->
+        <div class="mask"></div>
+        <!-- 移动端导航 -->
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg" id="m-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="" class="navbar-toggle show-btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="./index.html" class="navbar-brand"></a>
+            </div>
+        </div>
+    </nav>
+    <!-- 移动端导航 -->
+    <!-- pc端导航 -->
+     <nav class="navbar navbar-default navbar-fixed-top hidden-xs hidden-sm" id="pc-nav">
+        <div class="container">
+            <div class="navbar-header">
+                 <a class="navbar-brand" id="pc-logo"><img src="./images/pc-LOGO.png" alt=""></a>
+            </div>
+            <ul class="nav navbar-nav pc-top-nav">
+                <li><a href="./index.html" >首页</a></li>
+                <li><a  href="./machine.html" class="pc-nav-active">超融合一体机</a>
+                    <ul class="pc-lv2-nav nav">                   
+                        <li><a href="./product_nav.html">超融合服务器</a></li>
+                        <li><a href="./core_technology.html">超融合核心技术</a></li>
+                        <li><a href="./cloud_server.html">云服务中心</a></li>
+                    </ul>
+                </li>
+                <li><a href="./resolve_plan.html">解决方案</a></li>
+                <li><a href="./recruit.html">渠道招募</a></li>
+                <li><a href="./download.html">支持与下载</a>
+                    <ul class="pc-lv2-nav nav">
+                        <li><a href="./download.html?id=0">常见问题</a></li>
+                        <li><a href="./download.html?id=1">资料下载</a></li>
+                        <li><a href="./download.html?id=2">序列号查询</a></li>
+                        
+                    </ul>
+                </li>
+                <li><a href="./aboutUs.html?id=0">关于我们</a>
+                    <ul class="pc-lv2-nav nav">
+                        <li><a href="./aboutUs.html?id=0">公司简介</a></li>
+                        <li><a href="./aboutUs.html?id=1">联系我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- pc端导航 -->
+    <!-- 轮播图 -->
+    <!-- 巨幕 -->
+    <div class="jumbotron">
+      <div class="container">
+            <h1 class="text-center">自主研发的超融合核心技术</h1>
+            <p class="text-center">底层深度优化存储性能</p>
+            <p class="text-center">从容应对各种应用性能挑战</p>
+            <img src="images/core-technology/pc-right-banner.png" class="hidden-xs hidden-sm">
+      </div>
+    </div>
+    <!-- 巨幕 -->
+    <!-- 产品特性介绍 -->
+    <div class="intro container">
+        <h2 class="text-center">完全自主研发的核心技术</h2>
+        <p class="text-left">云宏自主研发的虚拟化和分布式存储技术广泛应用于运营商、银行、航天和政府领域，云宏超融合服务器基于完全自主研发的核心技术，为您构建一个高性能，高安全的专有云数据中心。</p>
+        <div class="row">
+            <div class="col-xs-12 col-lg-4 col-md-4">
+                    <div>
+                        <div class="pc-hover hidden-sm hidden-xs">
+                            <h4>兼容主流虚拟化</h4>
+                            <h5>采用异构设计、可全面兼容主流虚拟化vmware、hyper-v、xen、powervm。 </h5>
+                        </div>
+                        <div class="imgWrap">
+                            <img data-original="images/core-technology/core1.png" alt="" class="img-responsive lazy">
+                        </div>
+                        <h3 class="text-center">兼容主流虚拟化</h3>
+                        <p class="text-center hidden-md hidden-lg">采用异构设计、可全面兼容主流虚拟化vmware、hyper-v、xen、powervm。</p>
+                    </div>
+            </div>
+            <div class="col-xs-12 col-lg-4 col-md-4">
+                <div>
+                   <div class="pc-hover hidden-sm hidden-xs">
+                        <h4>虚拟化和分布式存储深度整合</h4>
+                        <h5>虚拟化和分布式存储深度整合、IO路径最短化、存储随机读性能最高可达8万IOPS。</h5>
+                    </div>
+                    <div class="imgWrap">
+                          <img data-original="images/core-technology/core2.png" alt="" class="img-responsive lazy">
+                    </div>
+                    <h3 class="text-center">虚拟化和分布式存储深度整合</h3>
+                    <p class="text-center hidden-md hidden-lg">虚拟化和分布式存储深度整合、IO路径最短化、存储随机读性能最高可达8万IOPS。</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-4 col-md-4">
+                <div>
+                    <div class="pc-hover hidden-sm hidden-xs">
+                        <h4>去中心架构</h4>
+                        <h5>整个系统采用全分布式无共享架构，无状态的处理架构保证系统能实现横向线性扩展、无单点故障和性能瓶颈。</h5>
+                    </div>
+                    <div class="imgWrap">
+                      <img data-original="images/core-technology/core3.png" alt="" class="img-responsive lazy">
+                    </div>
+                    <h3 class="text-center">去中心架构</h3>
+                    <p class="text-center hidden-md hidden-lg">整个系统采用全分布式无共享架构，无状态的处理架构保证系统能实现横向线性扩展、无单点故障和性能瓶颈。</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-4 col-md-4">
+                <div>
+                     <div class="pc-hover hidden-sm hidden-xs">
+                        <h4>毫秒级快照</h4>
+                        <h5>创建快照是非常轻松高效的操作。快照创建均在秒级内完成，此外快照之间无依赖，方便快照管理。</h5>
+                    </div>
+                    <div class="imgWrap">
+                          <img data-original="images/core-technology/core4.png" alt="" class="img-responsive lazy">
+                    </div>
+                    <h3 class="text-center">毫秒级快照</h3>
+                    <p class="text-center hidden-md hidden-lg">创建快照是非常轻松高效的操作。快照创建均在秒级内完成，此外快照之间无依赖，方便快照管理。</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-4 col-md-4">
+                <div>
+                    <div class="pc-hover hidden-sm hidden-xs">
+                        <h4>在线迁移不停机</h4>
+                        <h5>整个升级过程无需暂停任何服务，用户虚拟机里的业务无需中断。最快仅需90秒。 </h5>
+                    </div>
+                    <div class="imgWrap" id="online">
+                          <img data-original="images/core-technology/core5.png" alt="" class="img-responsive lazy">
+                    </div>
+                    <h3 class="text-center">在线迁移不停机</h3>
+                    <p class="text-center hidden-md hidden-lg">整个升级过程无需暂停任何服务，用户虚拟机里的业务无需中断。最快仅需90秒。  </p>
+                </div>
+            </div>
+             <div class="col-xs-12 col-lg-4 col-md-4" >
+                <div>
+                    <div class="pc-hover hidden-sm hidden-xs">
+                        <h4>智能数据恢复</h4>
+                        <h5>物理磁盘损坏、存储节点掉电、网络连接失败等因素导致的数据可用性、可靠性下降事故，会自动在健康物理节点上重建数据，保证数据可靠性。</h5>
+                    </div>
+                    <div class="imgWrap" id="recovery">
+                           <img data-original="images/core-technology/core6.png" alt="" class="img-responsive lazy">
+                    </div>
+                    <h3 class="text-center">智能数据恢复</h3>
+                    <p class="text-center hidden-md hidden-lg">物理磁盘损坏、存储节点掉电、网络连接失败等因素导致的数据可用性、可靠性下降事故，会自动在健康物理节点上重建数据，保证数据可靠性。 </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-4 col-md-4">
+                <div>
+                    <div class="pc-hover hidden-sm hidden-xs">
+                        <h4>硬盘热插拔</h4>
+                        <h5>当磁盘损坏需要更换的时候，无需停机断电，用新磁盘替换损坏磁盘即可。替换后将自动恢复损坏磁盘中的数据。</h5>
+                    </div>
+                    <div class="imgWrap">
+                          <img data-original="images/core-technology/core7.png" alt="" class="img-responsive lazy">
+                    </div>
+                    <h3 class="text-center">硬盘热插拔</h3>
+                    <p class="text-center hidden-md hidden-lg">当磁盘损坏需要更换的时候，无需停机断电，用新磁盘替换损坏磁盘即可。替换后将自动恢复损坏磁盘中的数据。 </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-4 col-md-4">
+                <div>
+                    <div class="pc-hover hidden-sm hidden-xs">
+                        <h4>多副备份数据</h4>
+                        <h5>应用场景不同，对数据可靠性、可用性的要求也不同。通过配置存储盘副本数，满足不同级别可靠性和可用性需求 。</h5>
+                    </div>
+                    <div class="imgWrap">
+                          <img data-original="images/core-technology/core8.png" alt="" class="img-responsive lazy">
+                    </div>
+                    <h3 class="text-center">多副备份数据</h3>
+                    <p class="text-center hidden-md hidden-lg">应用场景不同，对数据可靠性、可用性的要求也不同。通过配置存储盘副本数，满足不同级别可靠性和可用性需求 。 </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-4 col-md-4">
+                <div>
+                    <div class="pc-hover hidden-sm hidden-xs">
+                        <h4>纳管和利旧</h4>
+                        <h5>购买超融合服务器可以纳管旧的服务器，提高资源利用，避免造成浪费。</h5>
+                    </div>
+                    <div class="imgWrap">
+                          <img data-original="images/core-technology/core9.png" alt="" class="img-responsive lazy">
+                    </div>
+                    <h3 class="text-center">纳管和利旧</h3>
+                    <p class="text-center hidden-md hidden-lg">购买超融合服务器可以纳管旧的服务器，提高资源利用，避免造成浪费。</p>
+                </div>
+            </div>
+           
+           
+        </div>
+    </div>
+
+    <div class="bot-banner">
+            <img class="img-responsive" src="images/core-technology/bottom-banner.jpg" alt="">
+    </div>
+    <!-- 手机底部 -->
+    <div class="footer hidden-lg hidden-md">
+        <p class="text-center gobackTop hidden-md hidden-lg"><span><i></i>返回顶部</span></p>
+        <div class="text-center call-server">
+            <a href="tel:400-6300003" type="button" class="server-phone"><span></span>客服电话400-6300003转4</a>
+        </div>
+        <div>
+            <ul class="nav text-center" id="bottom-nav">
+                <li><a href="./download.html">支持与下载</a></li>
+                <li><a href="./aboutUs.html">关于我们</a></li>
+                <li><a target="_blank" href="http://www.winhong.com">云宏官网</a></li>
+            </ul>
+        </div>
+        <p class="text-center copyright">版权所有 云宏信息科技股份有限公司 2015-2017</p>
+        <p class="text-center copyright">粤ICP备10104379号-5</p>
+    </div>
+    <!-- pc底部 -->
+    <div class="footer-pc hidden-xs hidden-sm">
+        <div class="container">
+            <ul class="nav row">
+                <li class="col-md-2 col-lg-2">
+                    <h5>超融合一体机</h5>
+                    <a href="./product_nav.html?">超融合服务器</a>
+                    <a href="./core_technology.html">超融合核心技术</a>
+                    <a href="./cloud_server.html">云服务中心</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>解决方案</h5>
+                    <a href="./resolve_plan.html?id=0">金融</a>
+                    <a href="./resolve_plan.html?id=1">政府</a>
+                    <a href="./resolve_plan.html?id=2">教育行业</a>
+                    <a href="./resolve_plan.html?id=3">医疗机构</a>
+                    <a href="./resolve_plan.html?id=4">企业</a>
+                    <a href="./resolve_plan.html?id=5">运营商</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>帮助与支持</h5>
+                    <a href="./download.html?id=0">常见问题</a>
+                    <a href="./download.html?id=1">资料下载</a>
+                    <a href="./download.html?id=2">序列号查询</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>关于我们</h5>
+                    <a href="./aboutUs.html?id=0">公司简介</a>
+                    <a href="./aboutUs.html?id=1">联系我们</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>其他</h5>
+                    <a target="_blank" href="http://www.winhong.com">云宏官网</a>
+                    <a target="_blank" href="http://www.zkuyun.com">知库</a>
+                </li>
+                <li class="col-md-2 col-lg-2">
+                    <h5>关注我们</h5>
+                    <div>
+                        <img src="images/ewm.png">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="copyright-pc">
+            <div class="content">
+                <div>
+                    <p><span><img src="images/footLogo.png"></span>Copyright©2011-<i><script>var cy=new Date();document.write(cy.getFullYear())</script></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 粤ICP备10104379号-5
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightSideBar hidden-xs hidden-sm">
+        <div class="contactUs">
+            <span>联系我们</span>
+            <div class="contactInfor">
+
+                <a class="consultant" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2848614459&amp;site=qq&amp;menu=yes">销售顾问</a>
+
+                <a class="tel">400-6300003转4</a>
+                <a class="E-mail">siyouyun@winhong.com</a>
+                <span class="ewm"><img src="images/ewm.png"><br><em>官方微信，扫码关注</em></span>
+            </div>
+        </div>
+        <div class="returnTop" title="返回顶部"></div>
+    </div>
+     <script type="text/javascript" src="public/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/lazyload.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+              // 图片懒加载
+             $("img.lazy").lazyload({
+                 effect : "fadeIn"
+             });
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css"> 
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/bootstrap.min.js"></script>    
+</head>
+<body>
+	<div class="footer">
+        <p class="text-center gobackTop hidden-md hidden-lg"><span><i></i>返回顶部</span></p>
+        <div class="text-center">
+            <a href="tel:400-6300003" type="button" class="server-phone"><span></span>客服电话400-6300003转4</a>
+        </div>
+        <div>
+            <ul class="nav text-center" id="bottom-nav">
+                <li>支持与下载</li>
+                <li>关于我们</li>
+                <li>云宏官网</li>
+            </ul>
+        </div>
+        <p class="text-center copyright">版权所有 云宏信息科技股份有限公司 2015-2017</p>
+        <p class="text-center copyright">粤ICP备10104379号-5</p>
+    </div>
+</body>
+</html>

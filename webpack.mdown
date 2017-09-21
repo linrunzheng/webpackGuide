@@ -84,7 +84,7 @@ module.exports={
               exclude: /node_modules/,
               use: {
                 loader: 'babel-loader'          
-              }
+            }
         },  
     ]
   },
@@ -173,6 +173,9 @@ var extractSass = new ExtractTextPlugin({
     disable: process.env.NODE_ENV === "development"
 });
 
+//比如在生成环境下要压缩代码：
+new UglifyJSPlugin()；
+
 //在开发环境下使用代理
 devServer:{
    proxy: {
@@ -183,7 +186,96 @@ devServer:{
       }
   }
 
-  
+通常来说会用process.env.NODE_ENV === "development"，并且在package.json中设置环境变量来进行判断，不过当文件大了或者页面需要判断的地方多了之后，配置文件就会充斥着大量三元表达式。可以考虑用webpack-merge将配置文件拆分为3个文件，一个是webpack.common.js，即不管是生产环境还是开发环境都会用到的部分，以及webpack.product.js和webpack.dev.js。
+
+ //webpack.common.js
+ var path = require('path');
+ var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+ module.exports = {
+   entry: {
+     app: './src/index.js'
+   },
+   output: {
+     filename: '[name].bundle.js',
+     path: path.resolve(__dirname, 'dist')
+   },
+   module:{
+     {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'          
+      }
+   },
+   plugins: [
+     new HtmlWebpackPlugin({
+       title: 'test'
+     })
+   ],
+ };
+
+
+//webpack.dev.js
+ var merge = require('webpack-merge');
+ var common = require('./webpack.common.js');
+
+ module.exports = merge(common, {
+   module:{
+      rules:[
+        test: /\.css$/,
+        use:["style-loader","css-loader"]
+      ]
+       
+  },
+   devtool: 'inline-source-map',
+   devServer:{
+        open:true,  
+        hot: true, 
+        proxy: {
+           '/api/': {
+               target: 'http://baidu.com',
+               secure: false,
+               changeOrigin: true
+           }
+       }      
+     },
+ });
+
+
+ var merge = require('webpack-merge');
+ var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+ var common = require('./webpack.common.js');
+
+ module.exports = merge(common, {
+   module:{
+      rules:[
+          {
+            test: /\.css$/,
+            use: extractSass.extract({
+                use: [
+                      {
+                          loader: "css-loader"
+                      }, 
+                      {
+                        loader: 'postcss-loader',
+                        
+                      },
+                    ],
+                fallback: "style-loader"
+            })          
+          }
+      ]
+      
+   },
+   devtool: 'source-map',
+   plugins: [
+     new UglifyJSPlugin()
+   ]
+ });
+
+
+
  
 
 

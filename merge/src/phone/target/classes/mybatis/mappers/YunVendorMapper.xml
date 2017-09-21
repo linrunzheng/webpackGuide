@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.winhong.cloudweb.mapper.YunVendorMapper">
+
+	<resultMap id="BaseResultMap" type="com.winhong.cloudweb.pojo.YunVendor">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="username" jdbcType="VARCHAR" property="username" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="realname" jdbcType="VARCHAR" property="realname" />
+		<result column="contacts" jdbcType="VARCHAR" property="contacts" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="usertype" jdbcType="VARCHAR" property="usertype" />
+		<result column="createtime" jdbcType="VARCHAR" property="createtime" />
+		<result column="locked" jdbcType="VARCHAR" property="locked" />
+		<result column="salt" jdbcType="DATE" property="salt" />
+		<result column="head" jdbcType="VARCHAR" property="head" />
+	</resultMap>
+
+
+	<sql id="Base_Column_info">
+		id,username,password,realname,contacts,phone,email,usertype,createtime,locked,salt,head
+	</sql>
+
+	<!-- 获取超级管理员的信息 -->
+	<select id="getSuperAdministrator" parameterType="java.lang.String" resultMap="BaseResultMap">
+		SELECT 
+		<include refid="Base_Column_info"/>
+		FROM yun_vendor
+		WHERE username = 'admin'
+	</select>
+
+</mapper>
