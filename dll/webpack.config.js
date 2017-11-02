@@ -7,17 +7,15 @@ var AutoDllPlugin = require('autodll-webpack-plugin');
 var glob= require('glob');
 var files = glob.sync('./src/*.html');
 var entry={};
-/*entry.vendor=[ "vue","vuex","axios","jquery","vue-router","moment","lodash"];*/
+
 
 var plugins=[
      new CleanWebpackPlugin(['dist']),
      new webpack.optimize.UglifyJsPlugin(),
-     /* new webpack.optimize.CommonsChunkPlugin({
-         name:["vendor","mainfest"]
-       })*/
+
      new AutoDllPlugin({
        filename: '[name].[hash].js', 
-       path: './page/common/',
+       path: './page/',
        inject:true,
        entry: {
          vendor: [
@@ -39,7 +37,7 @@ files.forEach(function(item,i){
         new htmlWebpackPlugin({
             template:item,
             filename:htmlName,
-            chunks:["page/"+name+"/"+name/*,"vendor","mainfest"*/]
+            chunks:["page/"+name+"/"+name]
         })
     )
 });

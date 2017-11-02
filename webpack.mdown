@@ -1,4 +1,4 @@
-
+###打包多文件
 之前，当需要打包多个而文件时，我是这么写的：
 ```javascript
 module.exports={
@@ -35,14 +35,15 @@ module.exports={
       ]
 ```
 
-可惜发现，我们在entry中手动引入了多个文件，在plugins中，我们又手动的多次new htmlWebpackPlugin()。虽然能够正常的运行，然而存在很多限制。首先存在大量重复的代码，现在只有3个页面，假如现有10个页面，那么你就得手动的new10次，在enrty中输入10个入口。其次，当增加新的页面时，又得过来webpack的配置里面手动的再加入到入口文件中。明显的，对于这些重复的而且长得很像的，如果能自动获取到需要配置的文件，并且在一个循环里面调用，那就方便多了。
+可以发现，我们在entry中手动引入了多个文件，在plugins中，我们又手动的多次new htmlWebpackPlugin()。虽然能够正常的运行，然而存在很多限制。首先存在大量重复的代码，现在只有3个页面，假如现有10个页面，那么你就得手动的new10次，在enrty中输入10个入口。其次，当增加新的页面时，又得过来webpack的配置里面手动的再加入到入口文件中。明显的，对于这些重复的而且长得很像的，如果能自动获取到需要配置的文件，并且在一个循环里面调用，那就方便多了。
 
-使用golb来获取文件
+使用node.js的golb模块来获取文件
+并且使用webpack-merge来合并对象
 
 //引入glob
 var glob= require('glob');
 
-//读取src目录下所有的html文件
+//同步读取src目录下所有的html文件
 var files = glob.sync('./src/*.html');
 var entry={};
 var plugins=[];
@@ -91,12 +92,12 @@ module.exports={
   plugins:plugins
 }
 
-可以发现，使用glob.sync来读取文件并进行循环操作，原本需要手动操作的部分，循环已经帮我们处理好了。原本需要很多new new htmlWebpackPlugin()已经不再存在，而且即使后续需要添加新的页面，也不需要我们手动去添加，glob.sync会自己去读取所有的*.html文件，接着循环会帮我们处理。这里唯一需要注意的地方就是，index.html对应的js文件必须为index.js，ceshi.html文件对应的文件必须为ceshi.js,至于js里面需要引入其他库，或者自己写的工具函数，只需引入即可，webpack会自己处理好。
+可以发现，使用glob.sync来读取文件并进行循环操作，原本需要手动操作的部分，循环已经帮我们处理好了。原本需要很多new new htmlWebpackPlugin()已经不再存在，而且即使后续需要添加新的页面，也不需要我们手动去添加，glob.sync会自己去读取所有的*.html文件，接着循环会帮我们处理。这里唯一需要注意的地方就是，index.html对应的js文件必须为index.js，ceshi.html文件对应的文件必须为ceshi.js,至于js里面需要引入其他库，或者自己写的工具函数，哪个页面只需引入即可，webpack会自己处理好。
 
-因此，当页面存在引用相同的库时，最好还是将这些库文件提取到单独的文件，页面只保留业务逻辑的js代码。为了提取文件，有2中处理方案：
+当页面存在引用相同的库时，最好还是将这些库文件提取到单独的文件，页面只保留业务逻辑的js代码。为了提取文件，有2中处理方案：
 
 1：使用CommonsChunkPlugin来提取
-在上面的代码上增加：(这部分代码只在使用CommonsChunkPlugin时需要)
+在上面的代码上增加：(以下这部分代码只在使用CommonsChunkPlugin时需要)
 ------
   entry.vendor=[
      //举例如下：
@@ -105,11 +106,11 @@ module.exports={
 
   plugins=[   
      new webpack.optimize.CommonsChunkPlugin({
-         name:["vendor","mainfest"]
+         name:["vendor","manifest"]
        })
   ]
 
-  //修改循环中的chunks,增加vendor以及mainfest:
+  //修改循环中的chunks, 增加vendor以及manifest:
   files.forEach(function(item,i){
       plugins.push(
           new htmlWebpackPlugin({
@@ -141,7 +142,7 @@ var plugins=[
         //文件名
         filename: '[name].[hash].js', 
 
-        //文件路径
+        //打包后的文件路径
         path: './page/common/',
 
         //是否将生成的Js文件注入到html文件中
@@ -161,7 +162,7 @@ var plugins=[
       })
 ] 
 
-执行webpack命令，可以发现公共的库文件也被打包到单独的文件了。autodll-webpack-plugin在内存中缓存了文件，所以当你第二此执行webpack命令进行打包时，可以明显发现打包时间少了很多。而CommonsChunkPlugin每次都全部重新打包再进行分离，所以当需要多次修改文件时，autodll-webpack-plugin可以明显降低打包的事件。
+执行webpack命令，可以发现公共的库文件也被打包到单独的文件了。autodll-webpack-plugin在内存中缓存了文件，所以当你第二此执行webpack命令进行打包时，可以明显发现打包时间少了很多。而CommonsChunkPlugin每次都全部重新打包再进行分离，所以当需要多次修改文件时，autodll-webpack-plugin可以明显降低打包的时间，尤其是依赖很多外部库的时候。
 
 
 使用webpack-merge区分生成环境和开发环境：
@@ -193,87 +194,100 @@ devServer:{
  var HtmlWebpackPlugin = require('html-webpack-plugin');
 
  module.exports = {
-   entry: {
-     app: './src/index.js'
-   },
-   output: {
-     filename: '[name].bundle.js',
-     path: path.resolve(__dirname, 'dist')
-   },
-   module:{
-     {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'          
-      }
-   },
-   plugins: [
-     new HtmlWebpackPlugin({
-       title: 'test'
-     })
-   ],
- };
-
-
-//webpack.dev.js
- var merge = require('webpack-merge');
- var common = require('./webpack.common.js');
-
- module.exports = merge(common, {
-   module:{
-      rules:[
-        test: /\.css$/,
-        use:["style-loader","css-loader"]
-      ]
-       
-  },
-   devtool: 'inline-source-map',
-   devServer:{
-        open:true,  
-        hot: true, 
-        proxy: {
-           '/api/': {
-               target: 'http://baidu.com',
-               secure: false,
-               changeOrigin: true
-           }
-       }      
+     entry: {
+         app: './src/index.js'
      },
- });
+     output: {
+         filename: '[name].bundle.js',
+         path: path.resolve(__dirname, 'dist')
+     },
+     module: {
+        rules:[
+            {
+                 test: /\.js$/,
+                 exclude: /node_modules/,
+                 use: {
+                     loader: 'babel-loader'
+                 }
+            },
+        ]           
+     },
+    plugins: [
+         new HtmlWebpackPlugin({
+             title: 'test'
+         })
+     ],
+ }
 
 
- var merge = require('webpack-merge');
- var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
- var common = require('./webpack.common.js');
+//开发环境webpack.dev.js
+var merge = require('webpack-merge');
+var common = require('./webpack.common.js');
 
- module.exports = merge(common, {
-   module:{
-      rules:[
-          {
+module.exports = merge(common, {
+  module:{
+     rules:[
+       {
+           test: /\.css$/,
+           use:["style-loader","css-loader"]
+       }
+   ]      
+ },
+  devtool: 'inline-source-map',
+  devServer:{
+       open:true,  
+       hot: true, 
+       proxy: {
+          '/api/': {
+              target: 'http://baidu.com',
+              secure: false,
+              changeOrigin: true
+          }
+      }      
+    },
+})
+
+
+//生产环境webpack.product.js
+var merge = require('webpack-merge');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var common = require('./webpack.common.js');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var cleanPlugin = require("clean-webpack-plugin");
+var extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+});
+
+module.exports = merge(common, {
+    module: {
+        rules: [{
             test: /\.css$/,
             use: extractSass.extract({
-                use: [
-                      {
-                          loader: "css-loader"
-                      }, 
-                      {
-                        loader: 'postcss-loader',
-                        
-                      },
-                    ],
+                use: [{
+                    loader: "css-loader"
+                }, ],
                 fallback: "style-loader"
-            })          
-          }
-      ]
-      
-   },
-   devtool: 'source-map',
-   plugins: [
-     new UglifyJSPlugin()
-   ]
- });
+            })
+        }]
 
+    },
+    devtool: 'source-map',
+    plugins: [
+        new cleanPlugin(["dist"]),
+        new UglifyJSPlugin(),
+        extractSass,
+    ]
+});
+
+
+在packjson中修改webpack默认配置文件
+
+"scripts": {
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.product.js"
+},
+
+通过npm run dev以及npm run build来执行对应的操作。
 
 
  

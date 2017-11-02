@@ -1,0 +1,160 @@
+<html>
+<head>
+    <title>threejs - geometry</title>
+
+    <style>
+    	body{
+    		margin: 0;
+    		overflow: hidden;
+    	}
+    </style>
+</head>
+<body>
+
+    <canvas id="myCanvas"></canvas>
+
+<script src="./js/three.min.js"></script>
+<script src='./js/dat.js'></script>
+<script src='./js/geo.js'></script>
+<script src='./js/odt.js'></script>
+<script>
+
+</script>
+
+    <script>
+     /* window.onload=function(){
+       var renderer,
+        scene,
+        camera,
+        myCanvas = document.getElementById('myCanvas');
+
+
+       
+
+
+
+       //RENDERER
+       renderer = new THREE.WebGLRenderer({canvas: myCanvas, antialias: true});
+       renderer.setClearColor(0xfff);
+       renderer.setSize(window.innerWidth, window.innerHeight);
+
+       //CAMERA
+       camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
+
+       //SCENE
+       scene = new THREE.Scene();
+
+      
+       var geometry = new THREE.ConeGeometry( 5, 20, 32 );
+       var material = new THREE.MeshBasicMaterial( {color:0xfff} );
+       var cone = new THREE.Mesh( geometry, material );
+       scene.add( cone );
+       
+ 
+       var geometry = new THREE.ConeGeometry(100, 100, 100);  //ConeGeometry(radius, height, radiusSegments, 
+
+
+      }
+*/
+
+
+
+
+
+      var gui = new dat.GUI();
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 50 );
+      camera.position.z = 30;
+
+      var renderer = new THREE.WebGLRenderer( { antialias: true } );
+      renderer.setPixelRatio( window.devicePixelRatio );
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      document.body.appendChild( renderer.domElement );
+
+      var orbit = new THREE.OrbitControls( camera, renderer.domElement );
+      orbit.enableZoom = false;
+
+      var ambientLight = new THREE.AmbientLight( 0x000000 );
+      scene.add( ambientLight );
+
+      var lights = [];
+      lights[ 0 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+      lights[ 1 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+      lights[ 2 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+
+      lights[ 0 ].position.set( 0, 200, 0 );
+      lights[ 1 ].position.set( 100, 200, 100 );
+      lights[ 2 ].position.set( - 100, - 200, - 100 );
+
+      scene.add( lights[ 0 ] );
+      scene.add( lights[ 1 ] );
+      scene.add( lights[ 2 ] );
+
+      var mesh = new THREE.Object3D()
+
+      mesh.add( new THREE.LineSegments(
+
+        new THREE.Geometry(),
+
+        new THREE.LineBasicMaterial( {
+          color: 0xffffff,
+          transparent: true,
+          opacity: 0.5
+        } )
+
+      ) );
+      
+      mesh.add( new THREE.Mesh(
+
+        new THREE.Geometry(),
+
+        new THREE.MeshPhongMaterial( {
+          color: 0x156289,
+          emissive: 0x072534,
+          side: THREE.DoubleSide,
+          shading: THREE.FlatShading
+        } )
+
+      ) );
+
+      var options = chooseFromHash( mesh );
+
+      scene.add( mesh );
+
+      var prevFog = false;
+
+      var render = function () {
+
+        requestAnimationFrame( render );
+
+        var time = Date.now() * 0.001;
+
+        if ( ! options.fixed ) {
+
+          mesh.rotation.x += 0.005;
+          mesh.rotation.y += 0.005;
+
+        }
+
+        renderer.render( scene, camera );
+
+      };
+
+      window.addEventListener( 'resize', function () {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+      }, false );
+
+      render();
+
+   
+
+
+
+    </script>
+</body>
+</html>

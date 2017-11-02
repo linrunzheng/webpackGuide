@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>ÔªËØÖÜÆÚ±í-ÃÎ¿Â½ÌÓýwww.mengkedu.com</title>
+<style>
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: #000000;
+	margin: 0;
+	font-family: Helvetica, sans-serif;;
+	overflow: hidden;
+}
+
+a {
+	color: #ffffff;
+}
+
+</style>
+</head>
+<body>
+<canvas id="cvs">
+	
+</canvas>
+<script src="js/three.min.js"></script>
+
+
+
+<script type="text/javascript">
+	window.onload=function(){
+		 var scene = new THREE.Scene();
+		 var cvs=document.getElementById("cvs");
+		 var renderer = new THREE.WebGLRenderer( { canvas:cvs,antialias: true } );
+	      renderer.setPixelRatio( window.devicePixelRatio );
+	      renderer.setSize( window.innerWidth, window.innerHeight );
+
+	      var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
+
+	       //LIGHTS
+	    var light = new THREE.AmbientLight(0xffffff, 0.5);
+	    scene.add(light);
+
+	    var light2 = new THREE.PointLight(0xffffff, 0.5);
+	    scene.add(light2);
+
+
+		var geometry = new THREE.OctahedronGeometry(80,0);
+		/*var material = new THREE.MeshLambertMaterial( {color:0xf3ffe2} );*/
+		var material = new THREE.MeshLambertMaterial( {
+			color:"#899db6",
+			emissive:"#899db6",
+			emissiveIntensity:0.5,
+		} );
+		var mesh = new THREE.Mesh( geometry, material );
+		mesh.position.z=-1000;
+		scene.add( mesh );
+
+			function animate(){
+				mesh.rotation.x+=0.0008;
+				mesh.rotation.y+=0.05;
+				renderer.render(scene, camera);
+				requestAnimationFrame(animate);
+			}
+			 animate();
+		 
+	}
+</script>
+
+</body>
+</html>
