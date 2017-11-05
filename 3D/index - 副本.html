@@ -26,43 +26,96 @@ a {
 	
 </canvas>
 <script src="js/three.min.js"></script>
+<script src="js/dat.js"></script>
+<script src="js/odt.js"></script>
 
 
 
 <script type="text/javascript">
+	/*dat 控制*/
 	window.onload=function(){
+
+
+
+
 		 var scene = new THREE.Scene();
 		 var cvs=document.getElementById("cvs");
 		 var renderer = new THREE.WebGLRenderer( { canvas:cvs,antialias: true } );
 	      renderer.setPixelRatio( window.devicePixelRatio );
-	      renderer.setSize( window.innerWidth, window.innerHeight );
+	      renderer.setSize( 1200,600 );
 
-	      var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
+	      var camera = new THREE.PerspectiveCamera(35,1200 / 600, 0.1, 5000);
 
-	       //LIGHTS
-	    var light = new THREE.AmbientLight(0xffffff, 0.5);
+	      var test = new THREE.OrbitControls( camera );
+
+
+	   //LIGHTS
+	    var light = new THREE.AmbientLight("#fff", 0.5);
 	    scene.add(light);
 
-	    var light2 = new THREE.PointLight(0xffffff, 0.5);
+	    var light2 = new THREE.PointLight("#fff",0.5);
+	    light2.position.x=500;
+	    light2.position.y=1000;
+	    light2.position.z=500;
+
 	    scene.add(light2);
 
 
 		var geometry = new THREE.OctahedronGeometry(80,0);
-		/*var material = new THREE.MeshLambertMaterial( {color:0xf3ffe2} );*/
 		var material = new THREE.MeshLambertMaterial( {
-			color:"#899db6",
-			emissive:"#899db6",
+			color:"#869ab5",
+			emissive:"#556d8f",
 			emissiveIntensity:0.5,
 		} );
-		var mesh = new THREE.Mesh( geometry, material );
-		mesh.position.z=-1000;
+
+		var material2 = new THREE.MeshBasicMaterial({
+			wireframe:true,
+			color:"#fff",
+			wireframeLinewidth:0.5
+		});
+
+		var mesh=THREE.SceneUtils.createMultiMaterialObject(geometry,[
+			material,material2
+		])
+
+
+		
+
+	/*	var mesh = new THREE.Mesh( geometry, material );*/
+		/*mesh.position.set(0,0,0);*/
 		scene.add( mesh );
 
+		var controls = new function () {
+            this.speedY = 0.05;
+            this.speedX = 0;
+            this.tx = 0;
+            this.ty = 0;
+            this.tz = 0;
+
+        };
+
+		var gui = new dat.GUI();
+        gui.add(controls, 'speedY', 0, 1);
+        gui.add(controls, 'speedX', 0, 1);
+        gui.add(controls, 'tx', 0, 1);
+        gui.add(controls, 'ty', 0, 1);
+        gui.add(controls, 'tz', 0, 1);
+
+        camera.position.x = 10;
+        camera.position.y =10 ;
+        camera.position.z = 1000;
+        
+
 			function animate(){
-				mesh.rotation.x+=0.0008;
-				mesh.rotation.y+=0.05;
+				/*mesh.rotation.x+=controls.speedX;
+				mesh.rotation.y+=controls.speedY;*/
+				/*mesh.translateX(controls.tx);
+				mesh.translateY(controls.ty);
+				mesh.translateZ(controls.tz);*/
 				renderer.render(scene, camera);
 				requestAnimationFrame(animate);
+
+				test.update();
 			}
 			 animate();
 		 
